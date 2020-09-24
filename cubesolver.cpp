@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <iostream> 
 
-int cube[6][3][3]; //»ö±ò : Èò»ö(0), »¡°­(1), ³ë¶û(2), ÁÖÈ²(3), ÆÄ¶û(4), ÃÊ·Ï(5)
+int cube[6][3][3]; //ìƒ‰ê¹” : í°ìƒ‰(0), ë¹¨ê°•(1), íŒŒë‘(2), ì£¼í™©(3), ì´ˆë¡(4), ë…¸ë‘(5)
 
-//Å¥ºê °ø½Ä Âü°í »çÀÌÆ® : https://m.blog.naver.com/bluebirdkids/220691361547 
-void UO(){ //À­¸é ½Ã°è¹æÇâ (up original) ¹æÇâÈ¸Àü Âü°í »çÀÌÆ® : https://cube3x3.com/%ED%81%90%EB%B8%8C%EB%A5%BC-%EB%A7%9E%EC%B6%94%EB%8A%94-%EB%B0%A9/ 
+//íë¸Œ ê³µì‹ ì°¸ê³  ì‚¬ì´íŠ¸ : https://m.blog.naver.com/bluebirdkids/220691361547 
+void UO(){ //ìœ—ë©´ ì‹œê³„ë°©í–¥ (up original) ë°©í–¥íšŒì „ ì°¸ê³  ì‚¬ì´íŠ¸ : https://cube3x3.com/%ED%81%90%EB%B8%8C%EB%A5%BC-%EB%A7%9E%EC%B6%94%EB%8A%94-%EB%B0%A9/ 
 	int temp[3][3], i, j;
 	temp[0][0] = cube[1][0][0];
 	temp[0][1] = cube[1][0][1];
@@ -29,7 +29,7 @@ void UO(){ //À­¸é ½Ã°è¹æÇâ (up original) ¹æÇâÈ¸Àü Âü°í »çÀÌÆ® : https://cube3x3.
 	}
 }
 
-void UU(){ //À­¸é ¿ª½Ã°è¹æÇâ (up unverse)
+void UU(){ //ìœ—ë©´ ì—­ì‹œê³„ë°©í–¥ (up unverse)
 	int temp[3][3], i, j;
 	temp[0][0] = cube[4][0][0];
 	temp[0][1] = cube[4][0][1];
@@ -54,51 +54,51 @@ void UU(){ //À­¸é ¿ª½Ã°è¹æÇâ (up unverse)
 	}
 }
 
-void LO(){ //¿Ş¸é ½Ã°è¹æÇâ (left original) 
+void LO(){ //ì™¼ë©´ ì‹œê³„ë°©í–¥ (left original) 
 	
 }
 
-void LU(){ //¿Ş¸é ¿ª½Ã°è¹æÇâ (left unverse) 
+void LU(){ //ì™¼ë©´ ì—­ì‹œê³„ë°©í–¥ (left unverse) 
 	
 }
 
-void FO(){ //¾Õ¸é ½Ã°è¹æÇâ (front original) 
+void FO(){ //ì•ë©´ ì‹œê³„ë°©í–¥ (front original) 
 	
 }
 
-void FU(){ //¾Õ¸é ½Ã°è¹æÇâ (front original)
+void FU(){ //ì•ë©´ ì‹œê³„ë°©í–¥ (front original)
 	
 }
 
-void RO(){ //¿À¸¥¸é ½Ã°è¹æÇâ (right original) 
+void RO(){ //ì˜¤ë¥¸ë©´ ì‹œê³„ë°©í–¥ (right original) 
 	
 }
 
-void RU(){ //¿À¸¥¸é ½Ã°è¹æÇâ (right original)
+void RU(){ //ì˜¤ë¥¸ë©´ ì‹œê³„ë°©í–¥ (right original)
 	
 }
 
-void BO(){ //µŞ¸é ½Ã°è¹æÇâ (back original) 
+void BO(){ //ë’·ë©´ ì‹œê³„ë°©í–¥ (back original) 
 	
 }
 
-void BU(){ //µŞ¸é ½Ã°è¹æÇâ (back original)
+void BU(){ //ë’·ë©´ ì‹œê³„ë°©í–¥ (back original)
 	
 }
 
-void DO(){ //¾Æ·§¸é ½Ã°è¹æÇâ (down original) 
+void DO(){ //ì•„ë«ë©´ ì‹œê³„ë°©í–¥ (down original) 
 	
 }
 
-void DU(){ //¾Æ·§¸é ½Ã°è¹æÇâ (down original)
+void DU(){ //ì•„ë«ë©´ ì‹œê³„ë°©í–¥ (down original)
 	
 }
 
 int main(){
 	int i, j, k;
-	for(i = 0; i < 6; i++){				//¸é 
-		for(j = 0; j < 3; j++){			//¿­ 
-			for(k = 0; k < 3; k++){		//Çà 
+	for(i = 0; i < 6; i++){				//ë©´ 
+		for(j = 0; j < 3; j++){			//ì—´ 
+			for(k = 0; k < 3; k++){		//í–‰ 
 				scanf("%d", &cube[i][j][k]); 
 			}
 		}
@@ -113,5 +113,5 @@ int main(){
 		}
 		printf("\nside : %d\n", i);
 	}
-	//1´Ü°è ½ÊÀÚ ¸ÂÃß±â 
+	//1ë‹¨ê³„ ì‹­ì ë§ì¶”ê¸° 
 }
