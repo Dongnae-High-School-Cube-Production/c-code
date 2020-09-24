@@ -60,7 +60,7 @@ void LO(){ //왼면 시계방향 (left original)
 	for(i = 0 ; i < 3; i++){
 		temp[i][0] = cube[1][i][0];
 	}
-	for(j=0;j<3;j++){
+	for(j = 0; j < 3; j++){
 		cube[1][j][0] = cube[0][j][0];
 		cube[0][j][0] = cube[3][j][0];
 		cube[3][j][0] = cube[5][j][0];
@@ -81,10 +81,10 @@ void LO(){ //왼면 시계방향 (left original)
 void LU(){ //왼면 역시계방향 (left unverse) 
 	int temp[3][3], i, j ,k;
 	
-	for(i = 0 ; i < 3; i++){
+	for(i = 0; i < 3; i++){
 		temp[i][0] = cube[3][i][0];
 	}
-	for(j=0;j<3;j++){
+	for(j = 0;j < 3; j++){
 		cube[1][j][0] = cube[5][j][0];
 		cube[0][j][0] = cube[1][j][0];
 		cube[3][j][0] = cube[0][j][0];
@@ -99,16 +99,6 @@ void LU(){ //왼면 역시계방향 (left unverse)
 	for(i = 0; i < 3; i++){
 		for(j = 0; j < 3; j++){
 			cube[4][i][j] = temp[j][2-i];
-		}
-	}
-	
-	for(i = 0; i < 6; i++){				 //test for functions work right
-		printf("\nside : %d\n", i);
-		for(j = 0; j < 3; j++){			 
-			for(k = 0; k < 3; k++){		 
-				printf("%d", cube[i][j][k]); 
-			}
-			printf("\n");
 		}
 	}
 }
@@ -155,7 +145,6 @@ int main(){
 		}
 	}
 	LU();
-	return 0;
 	for(i = 0; i < 6; i++){				 //test for functions work right
 		printf("\nside : %d\n", i);
 		for(j = 0; j < 3; j++){			 
@@ -164,8 +153,7 @@ int main(){
 			}
 			printf("\n");
 		}
-	}
-	//1단계 십자 맞추기 
+	} 
 }
 
 /*
