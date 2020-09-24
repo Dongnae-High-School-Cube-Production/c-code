@@ -4,7 +4,7 @@
 int cube[6][3][3]; //색깔 : 흰색(0), 빨강(1), 파랑(2), 주황(3), 초록(4), 노랑(5)
 
 //큐브 공식 참고 사이트 : https://m.blog.naver.com/bluebirdkids/220691361547 
-void UO(){ //앞면(빨강) 시계방향 (up original) 방향회전 참고 사이트 : https://cube3x3.com/%ED%81%90%EB%B8%8C%EB%A5%BC-%EB%A7%9E%EC%B6%94%EB%8A%94-%EB%B0%A9/ 
+void UO(){ // 윗면 시계방향 (up original) 방향회전 참고 사이트 : https://cube3x3.com/%ED%81%90%EB%B8%8C%EB%A5%BC-%EB%A7%9E%EC%B6%94%EB%8A%94-%EB%B0%A9/ 
 	int temp[3][3], i, j;
 	
 	for(i=0 ; i < 3; i++){
@@ -30,7 +30,7 @@ void UO(){ //앞면(빨강) 시계방향 (up original) 방향회전 참고 사�
 	}
 }
 
-void UU(){ //앞면(빨강) 역시계방향 (up unverse)
+void UU(){ // 윗면 역시계방향 (up unverse)
 	int temp[3][3], i, j;
 	
 	for(i = 0 ; i < 3; i++){
@@ -64,11 +64,11 @@ void LU(){ //왼면 역시계방향 (left unverse)
 	
 }
 
-void FO(){ //윗면 시계방향 (front original) 
+void FO(){ //앞면 시계방향 (front original) 
 	
 }
 
-void FU(){ //윗면 시계방향 (front original)
+void FU(){ //앞면 시계방향 (front original)
 	
 }
 
