@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <iostream> 
-
 int cube[6][3][3]; //색깔 : 흰색(0), 빨강(1), 파랑(2), 주황(3), 초록(4), 노랑(5)
 
 //큐브 공식 참고 사이트 : https://m.blog.naver.com/bluebirdkids/220691361547 
@@ -57,11 +55,62 @@ void UU(){ // 윗면 역시계방향 (up unverse)
 }
 
 void LO(){ //왼면 시계방향 (left original) 
+	int temp[3][3], i, j;
 	
+	for(i = 0 ; i < 3; i++){
+		temp[i][0] = cube[1][i][0];
+	}
+	for(j=0;j<3;j++){
+		cube[1][j][0] = cube[0][j][0];
+		cube[0][j][0] = cube[3][j][0];
+		cube[3][j][0] = cube[5][j][0];
+		cube[5][j][0] = temp[j][0];
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[4][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[4][i][j] = temp[2-j][i];
+		}
+	}
 }
 
 void LU(){ //왼면 역시계방향 (left unverse) 
+	int temp[3][3], i, j ,k;
 	
+	for(i = 0 ; i < 3; i++){
+		temp[i][0] = cube[3][i][0];
+	}
+	for(j=0;j<3;j++){
+		cube[1][j][0] = cube[5][j][0];
+		cube[0][j][0] = cube[1][j][0];
+		cube[3][j][0] = cube[0][j][0];
+		cube[5][j][0] = temp[j][0];
+	}
+	
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[4][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[4][i][j] = temp[j][2-i];
+		}
+	}
+	
+	for(i = 0; i < 6; i++){				 //test for functions work right
+		printf("\nside : %d\n", i);
+		for(j = 0; j < 3; j++){			 
+			for(k = 0; k < 3; k++){		 
+				printf("%d", cube[i][j][k]); 
+			}
+			printf("\n");
+		}
+	}
 }
 
 void FO(){ //앞면 시계방향 (front original) 
@@ -105,7 +154,8 @@ int main(){
 			}
 		}
 	}
-	UU();
+	LU();
+	return 0;
 	for(i = 0; i < 6; i++){				 //test for functions work right
 		printf("\nside : %d\n", i);
 		for(j = 0; j < 3; j++){			 
@@ -135,6 +185,26 @@ input
 4 4 4
 4 4 4
 4 4 4
+5 5 5
+5 5 5
+5 5 5
+
+
+0 0 0
+0 0 0
+0 0 0
+1 1 1
+1 1 1
+1 1 1
+2 2 2
+2 2 2
+2 2 2
+3 3 3
+3 3 3
+3 3 3
+3 4 9
+2 5 8
+1 6 7
 5 5 5
 5 5 5
 5 5 5
