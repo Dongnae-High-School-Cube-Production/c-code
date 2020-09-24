@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream> 
 
-int cube[6][3][3] //»ö±ò : Èò»ö(0), »¡°­(1), ³ë¶û(2), ÁÖÈ²(3), ÆÄ¶û(4), ÃÊ·Ï(5)
+int cube[6][3][3]; //»ö±ò : Èò»ö(0), »¡°­(1), ³ë¶û(2), ÁÖÈ²(3), ÆÄ¶û(4), ÃÊ·Ï(5)
 
 //Å¥ºê °ø½Ä Âü°í »çÀÌÆ® : https://m.blog.naver.com/bluebirdkids/220691361547 
 void UO(){ //À­¸é ½Ã°è¹æÇâ (up original) ¹æÇâÈ¸Àü Âü°í »çÀÌÆ® : https://cube3x3.com/%ED%81%90%EB%B8%8C%EB%A5%BC-%EB%A7%9E%EC%B6%94%EB%8A%94-%EB%B0%A9/ 
@@ -30,7 +30,28 @@ void UO(){ //À­¸é ½Ã°è¹æÇâ (up original) ¹æÇâÈ¸Àü Âü°í »çÀÌÆ® : https://cube3x3.
 }
 
 void UU(){ //À­¸é ¿ª½Ã°è¹æÇâ (up unverse)
-	
+	int temp[3][3], i, j;
+	temp[0][0] = cube[4][0][0];
+	temp[0][1] = cube[4][0][1];
+	temp[0][2] = cube[4][0][2];
+	for(i = 3; i >= 1; i--){
+		for(j = 0; j < 3; j++){
+			cube[i+1][0][j] = cube[i][0][j];
+		}
+	}
+	for(j = 0; j < 3; j++){
+			cube[1][0][j] = temp[0][j];
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[0][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[0][i][j] = temp[j][2-i];
+		}
+	}
 }
 
 void LO(){ //¿Þ¸é ½Ã°è¹æÇâ (left original) 
@@ -81,6 +102,16 @@ int main(){
 				scanf("%d", &cube[i][j][k]); 
 			}
 		}
+	}
+	UU();
+	for(i = 0; i < 6; i++){				 //test for functions work right
+		for(j = 0; j < 3; j++){			 
+			for(k = 0; k < 3; k++){		 
+				printf("%d", cube[i][j][k]); 
+			}
+			printf("\n");
+		}
+		printf("\nside : %d\n", i);
 	}
 	//1´Ü°è ½ÊÀÚ ¸ÂÃß±â 
 }
