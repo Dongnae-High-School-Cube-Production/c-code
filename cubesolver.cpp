@@ -208,8 +208,7 @@ void BU(){ //뒷면 시계방향 (back original)
 	
 }
 
-void DO(){ //아랫면 시계방향 (down original) 
-	void DO(){ //아랫면 시계방향 (down original) 
+void DO(){ //아랫면 시계방향 (down original)  
 	int temp[3][3], i, j;
 	
 	for(i=0;i<3;i++){
@@ -234,10 +233,8 @@ void DO(){ //아랫면 시계방향 (down original)
 		}
 	}
 }
-}
 
 void DU(){ //아랫면 역시계방향 (down original)
-	void DU(){ //아랫면 시계방향 (down original)
 	int temp[3][3], i, j;
 	
 	for(i=0;i<3;i++){
@@ -260,7 +257,6 @@ void DU(){ //아랫면 역시계방향 (down original)
 			cube[5][i][j] = temp[2-j][i];
 		}
 	}
-}
 }
 
 int main(){
