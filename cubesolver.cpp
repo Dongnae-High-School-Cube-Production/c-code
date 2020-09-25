@@ -63,7 +63,7 @@ void LO(){ //왼면 시계방향 (left original)
 	for(j = 0; j < 3; j++){
 		cube[1][j][0] = cube[0][j][0];
 		cube[0][j][0] = cube[3][j][0];
-		cube[3][j][0] = cube[5][j][0];
+		cube[3][j][2] = cube[5][j][0];
 		cube[5][j][0] = temp[j][0];
 	}
 	for(i = 0; i < 3; i++){
@@ -87,7 +87,7 @@ void LU(){ //왼면 역시계방향 (left unverse)
 	for(j = 0;j < 3; j++){
 		cube[1][j][0] = cube[5][j][0];
 		cube[0][j][0] = cube[1][j][0];
-		cube[3][j][0] = cube[0][j][0];
+		cube[3][j][2] = cube[0][j][0];
 		cube[5][j][0] = temp[j][0];
 	}
 	
@@ -176,8 +176,6 @@ input
 5 5 5
 5 5 5
 5 5 5
-
-
 0 0 0
 0 0 0
 0 0 0
