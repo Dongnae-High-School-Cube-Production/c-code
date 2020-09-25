@@ -292,7 +292,7 @@ void DU(){ //아랫면 역시계방향 (down original)
 	}
 }
 
-void R(){
+void R(){		//오른쪽으로 90도 큐브 통체로 
 	int temp[3][3] , i, j;
 	for(i = 0; i < 3; i++){
 		for(j = 0 ;j < 3; j++){
