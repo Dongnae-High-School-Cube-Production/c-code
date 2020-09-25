@@ -302,11 +302,11 @@ int main(){
 	for(i = 0; i < 6; i++){				//면 
 		for(j = 0; j < 3; j++){			//열 
 			for(k = 0; k < 3; k++){		//행 
-				scanf("%d", &cube[i][j][k]); 
+				cube[i][j][k] = i*10+j*3+k+1;
 			}
 		}
 	}
-	LU();
+	LO();
 	for(i = 0; i < 6; i++){				 //test for functions work right
 		printf("\nside : %d\n", i);
 		for(j = 0; j < 3; j++){			 
