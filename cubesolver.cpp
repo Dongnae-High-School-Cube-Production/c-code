@@ -175,7 +175,6 @@ void RO(){ //오른면 시계방향 (right original)
 }
 
 void RU(){ //오른면 역시계방향 (right original)
-	void RU(){ //오른면 역시계방향 (right original)
 	int temp[3][3], i, j;
 	
 	for(i = 0 ; i < 3; i++){
