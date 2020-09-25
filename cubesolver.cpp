@@ -201,11 +201,49 @@ void RU(){ //오른면 역시계방향 (right original)
 }
 
 void BO(){ //뒷면 시계방향 (back original) 
-	
+	int temp[3][3], i, j;
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			temp[i][j] = cube[3][i][j];
+		}
+	}
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			cube[3][i][j] = temp[2 - j][i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		temp[0][i] = cube[0][0][i];
+	}
+	for(i = 0; i < 3; i++){
+		cube[0][0][i] = cube[2][i][2];
+		cube[2][i][2] = cube[5][2][2-i];
+		cube[5][2][2-i] = cube[4][2-i][0];
+		cube[4][2-i][0] = temp[0][i];
+	}
 }
 
 void BU(){ //뒷면 시계방향 (back original)
-	
+	int temp[3][3], i, j;
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			temp[i][j] = cube[3][i][j];
+		}
+	}
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			cube[3][i][j] = temp[j][2 - i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		temp[0][i] = cube[0][0][i];
+	}
+	for(i = 0; i < 3; i++){
+		cube[0][0][i] = cube[4][2-i][0];
+		cube[4][2-i][0] = cube[5][2][2-i];
+		cube[5][2][2-i] = cube[2][i][2];
+		cube[2][i][2] = temp[0][i]; 
+	}
 }
 
 void DO(){ //아랫면 시계방향 (down original)  
