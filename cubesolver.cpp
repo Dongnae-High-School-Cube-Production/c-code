@@ -104,7 +104,26 @@ void LU(){ //왼면 역시계방향 (left unverse)
 }
 
 void FO(){ //앞면 시계방향 (front original) 
-	
+	int temp[3][3], i ,j;
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[1][i][j];
+		}
+	}
+	for(i  = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[1][i][j] = temp[2-j][i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		temp[0][i] = cube[0][2][i];
+	}
+	for(i = 0 ; i < 3; i++){
+		cube[0][2][i] = cube[4][2-i][2];
+		cube[4][2-i][2] = cube[5][0][2-i];
+		cube[5][0][2-i] = cube[2][i][0];
+		cube[2][i][0] = temp[0][i];
+	}
 }
 
 void FU(){ //앞면 시계방향 (front original)
