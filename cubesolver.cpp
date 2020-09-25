@@ -127,7 +127,26 @@ void FO(){ //앞면 시계방향 (front original)
 }
 
 void FU(){ //앞면 시계방향 (front original)
-	
+	int temp[3][3], i, j;
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[1][i][j];
+		}
+	}
+	for(i  = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[1][i][j] = temp[j][2-i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		temp[0][i] = cube[0][2][i];
+	}
+	for(i = 0; i < 3; i++){
+		cube[0][2][i] = cube[2][i][0];
+		cube[2][i][0] = cube[5][0][2-i];
+		cube[5][0][2-i] = cube[4][2-i][2];
+		cube[4][2-i][2] = temp[0][i];
+	}
 }
 
 void RO(){ //오른면 시계방향 (right original) 
