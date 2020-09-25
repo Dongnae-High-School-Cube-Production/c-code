@@ -267,7 +267,7 @@ void DO(){ //아랫면 시계방향 (down original)
 	}
 	for(i = 0; i < 3; i++){
 		for(j = 0; j < 3; j++){
-			cube[5][i][j] = temp[j][2-i];
+			cube[5][i][j] = temp[2-j][i];
 		}
 	}
 }
@@ -292,7 +292,7 @@ void DU(){ //아랫면 역시계방향 (down original)
 	}
 	for(i = 0; i < 3; i++){
 		for(j = 0; j < 3; j++){
-			cube[5][i][j] = temp[2-j][i];
+			cube[5][i][j] = temp[j][2-i];
 		}
 	}
 }
