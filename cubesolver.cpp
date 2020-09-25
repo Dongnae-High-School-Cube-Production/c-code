@@ -292,6 +292,39 @@ void DU(){ //아랫면 역시계방향 (down original)
 	}
 }
 
+void R(){
+	int temp[3][3] , i, j;
+	for(i = 0; i < 3; i++){
+		for(j = 0 ;j < 3; j++){
+			temp[i][j] = cube[0][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0 ;j < 3; j++){
+			cube[0][i][j] = temp[2-j][i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0 ;j < 3; j++){
+			temp[i][j] = cube[5][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0 ;j < 3; j++){
+			cube[5][i][j] = temp[j][2-i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0 ;j < 3; j++){
+			temp[i][j] = cube[1][i][j];
+			cube[2][i][j] = cube[1][i][j];
+			cube[2][i][j] = cube[3][i][j];
+			cube[3][i][j] = cube[4][i][j];
+			cube[4][i][j] = temp[i][j];
+		}
+	}
+}
+
 int main(){
 	int i, j, k;
 	for(i = 0; i < 6; i++){				//면 
