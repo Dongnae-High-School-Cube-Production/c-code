@@ -62,7 +62,7 @@ void LO(){ //왼면 시계방향 (left original)
 	}
 	for(j = 0; j < 3; j++){
 		cube[1][j][0] = cube[0][j][0];
-		cube[0][j][0] = cube[3][j][0];
+		cube[0][j][0] = cube[3][j][2];
 		cube[3][j][2] = cube[5][j][0];
 		cube[5][j][0] = temp[j][0];
 	}
@@ -82,13 +82,13 @@ void LU(){ //왼면 역시계방향 (left unverse)
 	int temp[3][3], i, j ,k;
 	
 	for(i = 0; i < 3; i++){
-		temp[i][0] = cube[3][i][0];
+		temp[i][0] = cube[1][i][0];
 	}
 	for(j = 0;j < 3; j++){
 		cube[1][j][0] = cube[5][j][0];
-		cube[0][j][0] = cube[1][j][0];
+		cube[5][j][0] = cube[3][j][2];
 		cube[3][j][2] = cube[0][j][0];
-		cube[5][j][0] = temp[j][0];
+		cube[0][j][0] = temp[j][0];
 	}
 	
 	for(i = 0; i < 3; i++){
@@ -150,11 +150,55 @@ void FU(){ //앞면 시계방향 (front original)
 }
 
 void RO(){ //오른면 시계방향 (right original) 
+	int temp[3][3], i, j ,k;
 	
+	for(i = 0; i < 3; i++){
+		temp[i][0] = cube[1][i][2];
+	}
+	for(j = 0;j < 3; j++){
+		cube[1][j][2] = cube[5][j][2];
+		cube[5][j][2] = cube[3][j][0];
+		cube[3][j][0] = cube[0][j][2];
+		cube[0][j][2] = temp[j][0];
+	}
+	
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[2][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[2][i][j] = temp[j][2-i];
+		}
+	}
 }
 
-void RU(){ //오른면 시계방향 (right original)
+void RU(){ //오른면 역시계방향 (right original)
+	void RU(){ //오른면 역시계방향 (right original)
+	int temp[3][3], i, j;
 	
+	for(i = 0 ; i < 3; i++){
+		temp[i][0] = cube[1][i][0];
+	}
+	for(j = 0; j < 3; j++){
+		cube[1][j][2] = cube[0][j][2];
+		cube[0][j][2] = cube[3][j][0];
+		cube[3][j][0] = cube[5][j][2];
+		cube[5][j][2] = temp[j][0];
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[2][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[2][i][j] = temp[2-j][i];
+		}
+	}
+	
+}
 }
 
 void BO(){ //뒷면 시계방향 (back original) 
