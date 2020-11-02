@@ -509,6 +509,57 @@ void step3(){
         R();
     }
 }
+
+
+void step4(){
+
+    int i,j,k,count=0;
+    while(1){
+        if(cube[0][0][1]!=cube[0][1][1] && cube[0][1][0]!=cube[0][1][1] && cube[0][2][1]!=cube[0][1][1] && cube[0][1][2]!=cube[0][1][1]){
+            if(cube[1][0][1]!=cube[0][1][1]&&cube[2][0][1]!=cube[0][1][1]&&cube[3][0][1]!=cube[0][1][1]&&cube[4][0][1]!=cube[0][1][1])break;
+        }
+        if(cube[1][0][1]==cube[0][1][1]||cube[0][2][1]==cube[0][1][1]){
+            if(cube[1][1][2]!=cube[0][1][1]&&cube[2][1][0]!=cube[0][1][1]){
+                UO();RO();UU();RU();FO();RU();FU();RO();
+                continue;
+            }
+            else if(cube[1][1][0]!=cube[0][1][1]&&cube[4][1][2]!=cube[0][1][1]){
+                UU();LU();UO();LO();FU();LO();FO();LU();
+                continue;
+            }
+            else{
+                L();
+            }
+        }
+        else if((cube[1][1][0]==cube[0][1][1]||cube[4][1][2]==cube[0][1][1]) && (cube[1][1][2]==cube[0][1][1]|| cube[2][1][0]==cube[0][1][1])) L();
+        else UO();
+    }
+    int cnt=0,all=0,change=0;
+    while(1){
+        if(change>=4){
+            L();
+            change=0;
+        }
+        if(cnt>=4) break;
+
+        if(cube[1][0][1]==cube[1][1][1] && cube[0][2][1]==cube[2][1][1]){
+            UO();RO();UU();RU();FO();RU();FU();RO();
+            cnt++;
+            change=0;
+            continue;
+        }
+        if(cube[1][0][1]==cube[1][1][1]&& cube[0][2][1]==cube[4][1][1]){
+            UU();LU();UO();LO();FU();LO();FO();LU();
+            cnt++;
+            change=0;
+            continue;
+        }
+        UO();
+        change++;
+    }
+}
+
+
 void step5(){
     int temp;
     temp = 4;
@@ -602,54 +653,6 @@ void step6(){
             }
         }
 
-    }
-}
-
-void step4(){
-
-    int i,j,k,count=0;
-    while(1){
-        if(cube[0][0][1]!=cube[0][1][1] && cube[0][1][0]!=cube[0][1][1] && cube[0][2][1]!=cube[0][1][1] && cube[0][1][2]!=cube[0][1][1]){
-            if(cube[1][0][1]!=cube[0][1][1]&&cube[2][0][1]!=cube[0][1][1]&&cube[3][0][1]!=cube[0][1][1]&&cube[4][0][1]!=cube[0][1][1])break;
-        }
-        if(cube[1][0][1]==cube[0][1][1]||cube[0][2][1]==cube[0][1][1]){
-            if(cube[1][1][2]!=cube[0][1][1]&&cube[2][1][0]!=cube[0][1][1]){
-                UO();RO();UU();RU();FO();RU();FU();RO();
-                continue;
-            }
-            else if(cube[1][1][0]!=cube[0][1][1]&&cube[4][1][2]!=cube[0][1][1]){
-                UU();LU();UO();LO();FU();LO();FO();LU();
-                continue;
-            }
-            else{
-                L();
-            }
-        }
-        else if((cube[1][1][0]==cube[0][1][1]||cube[4][1][2]==cube[0][1][1]) && (cube[1][1][2]==cube[0][1][1]|| cube[2][1][0]==cube[0][1][1])) L();
-        else UO();
-    }
-    int cnt=0,all=0,change=0;
-    while(1){
-        if(change>=4){
-            L();
-            change=0;
-        }
-        if(cnt>=4) break;
-
-        if(cube[1][0][1]==cube[1][1][1] && cube[0][2][1]==cube[2][1][1]){
-            UO();RO();UU();RU();FO();RU();FU();RO();
-            cnt++;
-            change=0;
-            continue;
-        }
-        if(cube[1][0][1]==cube[1][1][1]&& cube[0][2][1]==cube[4][1][1]){
-            UU();LU();UO();LO();FU();LO();FO();LU();
-            cnt++;
-            change=0;
-            continue;
-        }
-        UO();
-        change++;
     }
 }
 
