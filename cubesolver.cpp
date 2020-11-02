@@ -534,6 +534,78 @@ int main(){
 		}
 		FO();RO();UO();RU();UU();FU();FO();RO();UO();RU();UU();FU();
 	}
+	//sixth step : 윗면 맞추기
+	for(i= 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			if(cube[0][i][j] == 5){
+				cnt++;
+			}
+		}
+	}
+	if(cnt == 5){
+		while(cube[1][0][0] == 5 && cube[1][0][2] == 5){
+			UO();
+		}
+		temp = 3;
+		while(temp--){
+			FO();RU();FU();LO();FO();RO();FU();LU();
+		}
+	}
+	else if(cnt == 6){
+		while(cube[0][2][2] != 5){
+			UO();
+		}
+		if(cube[3][0][0] == 5){
+			temp = 2;
+			while(temp--){
+				FO();RU();FU();LO();FO();RO();FU();LU();
+			}
+		}
+		else{
+			UO();UO();
+			temp = 2;
+			while(temp--){
+				FO();RU();FU();LO();FO();RO();FU();LU();
+			}
+		}
+	}
+	else if(cnt == 7){
+		temp = 0;
+		while(cube[0][0][2] != 5 && cube[0][2][2] != 5){
+			UO();
+			temp++;
+			if(temp > 5){
+				break;
+			}
+		}
+		if(temp == 5){
+			while(cube[1][0][0] != 5){
+				temp = 1;
+				while(temp--){
+					FO();RU();FU();LO();FO();RO();FU();LU();
+				}
+			}
+		}
+		else{
+			if(cube[2][0][0] == 5){
+				temp = 2;
+				while(temp--){
+					FO();RU();FU();LO();FO();RO();FU();LU();
+				}
+			}
+			else{
+				UO();UO();
+				temp = 2;
+				while(temp--){
+					FO();RU();FU();LO();FO();RO();FU();LU();
+				}
+			}
+		}
+		
+	}
+	
+	
+	
 	for(i = 0; i < 6; i++){				 //test for functions work right
 		printf("\nside : %d\n", i);
 		for(j = 0; j < 3; j++){			 
