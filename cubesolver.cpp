@@ -358,6 +358,71 @@ void L(){		//왼쪽으로 큐브 통체로 90도 돌리기
 	}
 }
 
+void U(){
+	int i, j, temp[3][3];
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[0][i][j];
+			cube[0][i][j] = cube[1][i][j];
+			cube[1][i][j] = cube[5][i][j];
+			cube[5][i][j] = cube[3][2-i][2-j];
+			cube[3][2-i][2-j] = temp[i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[2][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[2][i][j] = temp[2-j][i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[4][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[4][i][j] = temp[j][2-i];
+		}
+	}
+}
+
+void D(){
+	int i, j, temp[3][3];
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[4][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[4][i][j] = temp[2-j][i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[2][i][j];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			cube[2][i][j] = temp[j][2-i];
+		}
+	}
+	for(i = 0; i < 3; i++){
+		for(j = 0; j < 3; j++){
+			temp[i][j] = cube[0][i][j];
+			cube[0][i][j] = cube[3][2-i][2-j];
+			cube[3][2-i][2-j] = cube[5][i][j];
+			cube[5][i][j] = cube[1][i][j];
+			cube[1][i][j] = temp[i][j];
+		}
+	}
+}
 
 int main(){
 	int i, j, k;
