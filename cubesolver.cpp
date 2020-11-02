@@ -367,7 +367,24 @@ int main(){
 			}
 		}
 	}
-	LO();
+	//second step : 십자 모서리와 중앙조각
+	while(cube[1][1][1] == 1){
+	    UO();
+	}
+	if(cube[2][0][1] == 2){
+	    if(cube[3][0][1] == 3){
+		continue;
+	    }
+	    else{
+	        LO();LO();UU();LO();LO();UO();LO();LO();
+	    }
+	}
+	else if(cube[3][0][1] == 2){
+	    BO();BO();UU();BO();BO();UO();BO();BO();
+	}
+	else{
+	    RO();RO();UO();UO();RO();RO();UO();UO();RO();RO();
+	}
 	for(i = 0; i < 6; i++){				 //test for functions work right
 		printf("\nside : %d\n", i);
 		for(j = 0; j < 3; j++){			 
