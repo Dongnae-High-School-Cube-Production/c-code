@@ -368,7 +368,7 @@ int main(){
 		}
 	}
 	//second step : 십자 모서리와 중앙조각
-	while(cube[1][1][1] == 1){
+	while(cube[1][0][1] == 1){
 	    UO();
 	}
 	if(cube[2][0][1] == 2){
