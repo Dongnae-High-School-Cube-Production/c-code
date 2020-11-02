@@ -451,6 +451,68 @@ int main(){
 	else{
 	    RO();RO();UO();UO();RO();RO();UO();UO();RO();RO();
 	}
+	//third step : 1층 맞추기
+	D();D();
+	temp = 4;
+	while(temp--){
+		if(cube[1][2][2] == 0 || cube[5][1][2] == 0 || cube[2][0][2] == 0){
+			while(cube[0][2][0] == 0 || cube[1][0][0] == 0 || cube[4][0][2] == 0){
+				UO();
+			}
+			RO();UO();RU();
+		}
+	}
+	temp = 4;
+	while(temp--){
+		if(cube[0][2][2] == 0){
+			int cnt = 0;
+			while(cube[1][0][2] == cube[2][1][1]){
+				cnt++;
+				R();
+				UU();				
+			}
+			RO();UO();UO();RU();UU();RO();UO();RU();
+			while(cnt--){
+				L();
+				UO();
+			}
+		}
+	}
+	temp = 4;
+	while(temp--){
+		if(cube[2][0][0] == 0){
+			int cnt = 0;
+			while(cube[1][0][2] == cube[1][1][1]){
+				cnt++;
+				R();
+				UU();
+			}
+			RO();UO();RU();
+			while(cnt--){
+				L();
+				UO();
+			}
+		}
+	}
+	temp = 4;
+	while(temp--){
+		if(cube[1][0][2] == 0){
+			int cnt = 0;
+			while(cube[0][2][2] == cube[1][1][1]){
+				cnt++;
+				R();
+				UU();
+			}
+			RU();FO();RO();FU();
+			while(cnt--){
+				L();
+				UO();
+			}
+		}
+	}
+	while(cube[1][1][1] != 1){
+		R();
+	}
 	for(i = 0; i < 6; i++){				 //test for functions work right
 		printf("\nside : %d\n", i);
 		for(j = 0; j < 3; j++){			 
