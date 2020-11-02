@@ -513,6 +513,27 @@ int main(){
 	while(cube[1][1][1] != 1){
 		R();
 	}
+	//fifth step : 윗면 십자 맞추기
+	temp = 4;
+	while(temp--){
+		if(cube[0][1][0] == 5){
+			break;
+		}
+	}
+	if(temp == 0){
+		FO();RO();UO();RU();UU();FU();
+	}
+	if(cube[0][1][2] == 5){
+		if(cube[0][2][1] != 5){
+			FO();RO();UO();RU();UU();FU();
+		}
+	}
+	else{
+		if(cube[0][2][1] == 5){
+			R();
+		}
+		FO();RO();UO();RU();UU();FU();FO();RO();UO();RU();UU();FU();
+	}
 	for(i = 0; i < 6; i++){				 //test for functions work right
 		printf("\nside : %d\n", i);
 		for(j = 0; j < 3; j++){			 
