@@ -425,7 +425,7 @@ void D(){
 }
 
 int main(){
-	int i, j, k;
+	int i, j, k, temp;
 	for(i = 0; i < 6; i++){				//면 
 		for(j = 0; j < 3; j++){			//열 
 			for(k = 0; k < 3; k++){		//행 
