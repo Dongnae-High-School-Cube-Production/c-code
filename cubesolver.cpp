@@ -1,4 +1,3 @@
-~
 #include <stdio.h>
 int cube[6][3][3]; //색깔 : 흰색(0), 빨강(1), 파랑(2), 주황(3), 초록(4), 노랑(5)
 
@@ -426,88 +425,59 @@ void D(){
 }
 
 void step2(){
-    printf("1");
-    while(cube[1][0][1] == 1){
+	int i, j, k;
+    int cnt = 0;
+    while(cnt < 2){
+        cnt = 0;
         UO();
+        for(i = 1; i <= 4; i++){
+        	if(cube[i][0][1] == cube[i][1][1]){
+        		cnt++;
+			}
+		}
+	}
+    while(cube[1][1][1] != 1){
+        L();
     }
-    if(cube[2][0][1] == 2){
-        if(cube[3][0][1] == 3){
-           // continue;
-        }
-        else{
-            LO();LO();UU();LO();LO();UO();LO();LO();
-        }
-    }
-    else if(cube[3][0][1] == 2){
-        BO();BO();UU();BO();BO();UO();BO();BO();
-    }
-    else{
-        RO();RO();UO();UO();RO();RO();UO();UO();RO();RO();
-    }
+	if(cnt == 2){
+		while(1){
+			R();
+			if(cube[2][0][1] != cube[2][1][1] && cube[1][0][1] != cube[1][1][1] && cube[3][0][1] == cube[3][1][1] && cube[4][0][1] == cube[4][1][1]){
+				break;
+			}
+			if(cube[2][0][1] != cube[2][1][1] && cube[4][0][1] != cube[4][1][1] && cube[1][0][1] == cube[1][1][1] && cube[3][0][1] == cube[3][1][1]){
+				break;
+			}
+		}
+		
+		if(cube[1][0][1] != cube[1][1][1]){
+			RO();RO();UU();RO();RO();UO();RO();RO();
+		}
+		else{
+			RO();RO();UO();UO();RO();RO();UO();UO();RO();RO();
+		}
+	}
 }
+
 void step3(){
     int temp;
     D();D();
     temp = 4;
     while(temp--){
-        if(cube[1][2][2] == 0 || cube[5][1][2] == 0 || cube[2][0][2] == 0){
-            while(cube[0][2][0] == 0 || cube[1][0][0] == 0 || cube[4][0][2] == 0){
-                UO();
-            }
-            RO();UO();RU();
-        }
-    }
-    temp = 4;
-    while(temp--){
-        if(cube[0][2][2] == 0){
-            int cnt = 0;
-            while(cube[1][0][2] == cube[2][1][1]){
-                cnt++;
-                R();
-                UU();
-            }
-            RO();UO();UO();RU();UU();RO();UO();RU();
-            while(cnt--){
-                L();
-                UO();
-            }
-        }
-    }
-    temp = 4;
-    while(temp--){
-        if(cube[2][0][0] == 0){
-            int cnt = 0;
-            while(cube[1][0][2] == cube[1][1][1]){
-                cnt++;
-                R();
-                UU();
-            }
-            RO();UO();RU();
-            while(cnt--){
-                L();
-                UO();
-            }
-        }
-    }
-    temp = 4;
-    while(temp--){
-        if(cube[1][0][2] == 0){
-            int cnt = 0;
-            while(cube[0][2][2] == cube[1][1][1]){
-                cnt++;
-                R();
-                UU();
-            }
-            RU();FO();RO();FU();
-            while(cnt--){
-                L();
-                UO();
-            }
-        }
-    }
-    while(cube[1][1][1] != 1){
-        R();
-    }
+    	if(cube[5][0][2] == 0 || cube[1][2][2] == 0 || cube[2][2][0] == 0){
+    		while(cube[0][2][2] != 0 && cube[1][0][2] != 0 && cube[2][0][0] != 0){
+    			UO();
+			}
+			RO();
+			UO();
+			RU();
+		}
+	}
+	temp = 4;
+	while(temp--){
+		if(cube[1][0][2] == 0){
+		}
+	}
 }
 
 
@@ -660,69 +630,15 @@ int main() {
   
     //흰색(0), 빨강(1), 파랑(2), 주황(3), 초록(4), 노랑(5)
     int i,j,k;
-    cube[0][0][0] = 3;
-    cube[0][0][1] = 0;
-    cube[0][0][2] = 4;
-    cube[0][1][0] = 0;
-    cube[0][1][1] = 0;
-    cube[0][1][2] = 0;
-    cube[0][2][0] = 0;
-    cube[0][2][1] = 0;
-    cube[0][2][2] = 4;
+    for(i = 0; i <6; i++){
+    	for(j = 0 ; j < 3; j++){
+    		for(k = 0; k < 3; k++){
+    			scanf("%d", &cube[i][j][k]);
+			}
+		}
+	}
 
-    cube[1][0][0] = 2;
-    cube[1][0][1] = 4;
-    cube[1][0][2] = 0;
-    cube[1][1][0] = 3;
-    cube[1][1][1] = 1;
-    cube[1][1][2] = 2;
-    cube[1][2][0] = 3;
-    cube[1][2][1] = 2;
-    cube[1][2][2] = 5;
-
-
-    cube[2][0][0] = 3;
-    cube[2][0][1] = 1;
-    cube[2][0][2] = 5;
-    cube[2][1][0] = 1;
-    cube[2][1][1] = 2;
-    cube[2][1][2] = 5;
-    cube[2][2][0] = 2;
-    cube[2][2][1] = 5;
-    cube[2][2][2] = 5;
-
-    cube[3][0][0] = 5;
-    cube[3][0][1] = 2;
-    cube[3][0][2] = 1;
-    cube[3][1][0] = 4;
-    cube[3][1][1] = 3;
-    cube[3][1][2] = 4;
-    cube[3][2][0] = 1;
-    cube[3][2][1] = 3;
-    cube[3][2][2] = 1;
-
-    cube[4][0][0] = 3;
-    cube[4][0][1] = 4;
-    cube[4][0][2] = 1;
-    cube[4][1][0] = 3;
-    cube[4][1][1] = 4;
-    cube[4][1][2] = 5;
-    cube[4][2][0] = 4;
-    cube[4][2][1] = 4;
-    cube[4][2][2] = 0;
-
-
-    cube[5][0][0] = 2;
-    cube[5][0][1] = 5;
-    cube[5][0][2] = 3;
-    cube[5][1][0] = 1;
-    cube[5][1][1] = 5;
-    cube[5][1][2] = 1;
-    cube[5][2][0] = 0;
-    cube[5][2][1] = 2;
-    cube[5][2][2] = 2;
-
-    step1();
+    step3();
     for(i = 0; i < 6; i++){				 //test for functions work right
         printf("\nside : %d\n", i);
         for(j = 0; j < 3; j++){
@@ -733,4 +649,3 @@ int main() {
         }
     }
 }
-~
